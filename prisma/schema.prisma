@@ -1,0 +1,30 @@
+//******** AUTO GENERATED FILE, DO NOT EDIT.  *********
+
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Player {
+  id            Int      @id @unique
+  nickname      String
+  first_name    String?
+  last_name     String?
+  position      String?
+  height_feet   Int?
+  height_inches Int?
+  weight_pounds Int?
+  weight_kilo   Int?
+  team_id       Int?
+  context       Json?
+  create_date   DateTime @default(now())
+  update_date   DateTime @updatedAt
+  is_active     Boolean  @default(true)
+}

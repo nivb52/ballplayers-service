@@ -1,0 +1,16 @@
+model Player {
+    id Int @id @unique
+    nickname String?
+    first_name String? 
+    last_name String?
+    position String?
+    height_feet Int?
+    height_inches Int? 
+    weight_pounds Int?
+    weight_kilo Int?
+    team_id Int?
+    create_date DateTime  @default(now())  
+    update_date DateTime @updatedAt
+    is_active Boolean @default(true)
+}
+
