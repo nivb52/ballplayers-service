@@ -10,7 +10,6 @@ import type {
   PlayerCsvRow,
   PlayerOnlineDataFlattened,
 } from "../models/player/player.interface";
-import { createTextMessage } from "../models/systemEventMessages/messageFactory";
 
 const inputFilePath: PathLike = process.env.player_full_file_path
   ? path.join(process.env.player_full_file_path)
