@@ -28,7 +28,7 @@ export const prepareUpdate = function (newData: object): Promise<ModelPlayer> {
 export const prepareCreateWithId = prepareUpdate;
 
 // @throws Error
-export const prepareRemove = function (data): Promise<number | void> {
+export const prepareRemove = function (data): Promise<number> {
   return new Promise((resolve, reject) => {
     const parsedId = isValidateNumericId(data.id);
     if (!parsedId) {
@@ -41,7 +41,7 @@ export const prepareRemove = function (data): Promise<number | void> {
 // @throws Error
 export const prepareHardRemove = function (
   id: number | string
-): Promise<number | void> {
+): Promise<number> {
   return new Promise((resolve, reject) => {
     const parsedId = isValidateNumericId(id);
     if (!parsedId) {
