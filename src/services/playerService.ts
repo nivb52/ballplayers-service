@@ -8,14 +8,14 @@ import {
   createBlobMessage,
   createTextMessage,
 } from "../models/systemEventMessages/messageFactory";
-import type { systemEventMessageContent } from "../models/systemEventMessages/interface";
 import type { Blob } from "buffer";
 import type {
   PlayerOnlineDataFlattened,
   PlayerOnlineDataFromBallOnTile,
 } from "../models/player/player.interface";
 import { objectflatten, sleep } from "../utils";
-import { type } from "os";
+
+const DEFAULT_ONLINE_SOURCE = `https://www.balldontlie.io/api/v1/players/`;
 
 export const init = () => {
   const subscribeCallback = (
@@ -108,7 +108,7 @@ export const remove = async (id: string | number) => {
 export const getPlayersDataFromOnlineSource = async (
   ids: number[]
 ): Promise<PlayerOnlineDataFromBallOnTile[]> => {
-  const outsourceDataUrl = `https://www.balldontlie.io/api/v1/players/`;
+  const outsourceDataUrl = DEFAULT_ONLINE_SOURCE;
   return await P.map(
     ids,
     (id) =>
@@ -125,7 +125,7 @@ export const findByIdFromExternalSource = async (
   id: number,
   cb: Function
 ): Promise<void> => {
-  const outsourceDataUrl = `https://www.balldontlie.io/api/v1/players/`;
+  const outsourceDataUrl = DEFAULT_ONLINE_SOURCE;
   try {
     const jsonPromise = await fetch(outsourceDataUrl + id);
     const res = await jsonPromise.json();
