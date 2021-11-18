@@ -8,6 +8,7 @@ import { connetToRabbit, broker } from "../lib/rabbit";
 import { AppError } from "../models/error/error.interface";
 import { startHttpServer } from "./app";
 import { startSocket } from "./socket";
+import type { Application } from "express";
 
 main()
   .then(() => console.info("online"))
@@ -19,11 +20,11 @@ main()
 //
 // Application entry point.
 //
-function main() {
+function main() : Promise<void> {
   const PORT: number = +process.env.PORT || 4000;
   return connetToRabbit()
     .then(() => startHttpServer(PORT))
-    .then((app) => startSocket(app))
+    .then((app : Application) => startSocket(app))
     .then(() => setErrorListeners())
     .catch((err: Error) => {
       console.error(err);
@@ -34,11 +35,17 @@ function main() {
 }
 
 function setErrorListeners() {
-  broker.on("blocked", (reason, { vhost, connectionUrl }) => {
-    console.error(
-      `Rabbitmq Vhost: ${vhost} was blocked using connection: ${connectionUrl}. Reason: ${reason}`
-    );
-  });
+  broker.on(
+    "blocked",
+    (
+      reason: string,
+      { vhost, connectionUrl }: { vhost: string, connectionUrl:string }
+    ) => {
+      console.error(
+        `Rabbitmq Vhost: ${vhost} was blocked using connection: ${connectionUrl}. Reason: ${reason}`
+      );
+    }
+  );
 
   process
     .on("beforeExit", () => {
