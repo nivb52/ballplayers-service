@@ -28,7 +28,6 @@
     "@prisma/client": "^2.30.3",
     "amqplib": "^0.8.0",
     "bluebird": "^3.7.2",
-    "cores": "^0.8.5",
     "cors": "^2.8.5",
     "data-forge": "^1.8.20",
     "data-forge-fs": "^0.0.9",
