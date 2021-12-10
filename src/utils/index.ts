@@ -1,15 +1,22 @@
 import { Promise } from "bluebird";
+import { isObject } from "lodash";
+
+const _evaluateKey = (prev_property, prefix, property) =>
+  prev_property ? prev_property + prefix + property : property;
 
 export function objectflatten(inputObject: object, prefix = "_"): object {
-  const parent = arguments[2];
+  const prev_property = arguments[2];
   return Object.keys(inputObject).reduce(
-    (sourceObj, k) =>
+    (sourceObj, property) =>
       Object.assign(
         sourceObj,
-        inputObject[k] && typeof inputObject[k] === "object"
+        isObject
           ? //@ts-ignore expected arguments
-            objectflatten(inputObject[k], prefix, k)
-          : { [parent ? parent + prefix + k : k]: inputObject[k] }
+            objectflatten(inputObject[property], prefix, property)
+          : {
+              [_evaluateKey(prev_property, prefix, property)]:
+                inputObject[property],
+            }
       ),
     {}
   );
