@@ -2,7 +2,7 @@
 import stream = require("stream");
 import fs = require("fs");
 import * as csv from "fast-csv";
-import type { ModelPlayer } from "../models/player/player.model";
+import type { ModelPlayer } from "@models/player/player.model";
 import * as PlayerService from "./playerService";
 
 // https://c2fo.github.io/fast-csv/docs/introduction/example

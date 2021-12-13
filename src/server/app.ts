@@ -1,7 +1,7 @@
 import * as express from "express";
 import player from "./routes/playerRouter";
 import players from "./routes/playersRouter";
-import {init as playerServiceInit} from "../services/playerService";
+import {init as playerServiceInit} from "@services/playerService";
 
 export function startHttpServer(port: number) {
   return new Promise((resolve) => {

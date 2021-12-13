@@ -3,13 +3,13 @@ import "data-forge-fs";
 import type { PathLike } from "fs";
 import * as path from "path";
 import { randomUUID } from "crypto";
-import { objectflatten } from "../utils";
-import { getPlayersDataFromOnlineSource } from "../services/playerService";
+import { objectflatten } from "@utils/index";
+import { getPlayersDataFromOnlineSource } from "@services/playerService";
 import { publishPlayerToPresist } from "./player.emitter";
 import type {
   PlayerCsvRow,
   PlayerOnlineDataFlattened,
-} from "../models/player/player.interface";
+} from "@models/player/player.interface";
 
 const inputFilePath: PathLike = process.env.player_full_file_path
   ? path.join(process.env.player_full_file_path)

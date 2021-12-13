@@ -1,19 +1,19 @@
-import * as playerRepo from "../player/player.repository";
+import * as playerRepo from "@player/player.repository";
 import * as P from "bluebird";
 import {
   playerUpdatedPublish,
   subscribeToPresistPlayer,
-} from "../player/player.emitter";
+} from "@player/player.emitter";
 import {
   createBlobMessage,
   createTextMessage,
-} from "../models/systemEventMessages/messageFactory";
+} from "@models/systemEventMessages/messageFactory";
 import type { Blob } from "buffer";
 import type {
   PlayerOnlineDataFlattened,
   PlayerOnlineDataFromBallOnTile,
-} from "../models/player/player.interface";
-import { objectflatten, sleep } from "../utils";
+} from "@models/player/player.interface";
+import { objectflatten, sleep } from "@utils/index";
 
 const DEFAULT_ONLINE_SOURCE = `https://www.balldontlie.io/api/v1/players/`;
 

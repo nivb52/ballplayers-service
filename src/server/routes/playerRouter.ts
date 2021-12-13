@@ -1,10 +1,10 @@
 import * as fs from "fs";
-import { main as playersETL } from "../../player/player.ETL";
-import * as PlayerService from "../../services/playerService";
+import { main as playersETL } from "@player/player.ETL";
+import * as PlayerService from "@services/playerService";
 
 import type { Request, Response } from "express";
 import { Router } from "express";
-import { defaultResponseError } from "../common";
+import { defaultResponseError } from "@server_common/index";
 
 const router: Router = Router();
 

@@ -1,11 +1,11 @@
-import { initConfig } from "../config/";
+import { initConfig } from "@config/index";
 initConfig();
-import { initJobs } from "../jobs/repetitiveTasks";
+import { initJobs } from "@jobs/repetitiveTasks";
 initJobs();
 
 import * as process from "process";
-import { connetToRabbit, broker } from "../lib/rabbit";
-import { AppError } from "../models/error/error.interface";
+import { connetToRabbit, broker } from "@lib/rabbit";
+import { AppError } from "@models/error/error.interface";
 import { startHttpServer } from "./app";
 import { startSocket } from "./socket";
 import type { Application } from "express";

@@ -23,16 +23,24 @@
         "sourceMap": true,
         "removeComments": false,
         "noImplicitAny": false,
-        "baseUrl": ".",
+        "baseUrl": "src",
         "paths": { 
-            "@validators": ["./src/validators/*"],
-            "@services": ["./src/services/*"],
-            "@utils": ["./src/utils/*"],
-            "@models": ["./src/models/*"],
-            "@lib": ["./src/lib/*"],
-            "@jobs": ["./src/jobs/*"],
-            "@config": ["./src/config/*"],
-            "@player": ["./src/player/*"],
+            "@/*": ["*"],
+            "@validators/*": ["validators/*"],
+            "@lib/*": ["lib/*"],
+            "@jobs/*": ["jobs/*"],
+            "@config/*": ["config/*"],
+            "@player/*": ["player/*"],
+            "@controllers/*": ["controllers/*"],
+            "@dtos/*": ["dtos/*"],
+            "@exceptions/*": ["exceptions/*"],
+            "@interfaces/*": ["interfaces/*"],
+            "@middlewares/*": ["middlewares/*"],
+            "@models/*": ["models/*"],
+            "@services/*": ["services/*"],
+            "@utils/*": ["utils/*"],
+            "@server_common/*": ["server/common/*"]
         }
+        
     }
 }

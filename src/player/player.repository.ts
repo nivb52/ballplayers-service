@@ -1,7 +1,6 @@
-//@ts-nocheck
-import db from "../lib/postgres";
-import { ModelPlayer } from "../models/player/player.interface";
-import * as Player from "../models/player/player.model";
+import db from "@lib/postgres";
+import * as Player from "@models/player/player.model";
+
 // @throws Error
 export const create = async function (data: {}): Promise<{}> {
   const validPlayerData = await Player.prepareCreateWithId(data);
@@ -13,7 +12,7 @@ export const update = async function (where: {}, data: {}): Promise<{}> {
   const validPlayerData = await Player.prepareUpdate(data);
   return await db.player.update({
     where: {
-      where,
+      ...where,
     },
     data: validPlayerData,
   });

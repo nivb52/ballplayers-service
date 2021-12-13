@@ -1,5 +1,5 @@
 import * as schedule from "node-schedule";
-import { updatePlayersInDataBaseFromExternalSource } from "../services/playerService";
+import { updatePlayersInDataBaseFromExternalSource } from "@services/playerService";
 
 export const initJobs = async () => {
   updatePlayersEvery15MinFromExternalSource();

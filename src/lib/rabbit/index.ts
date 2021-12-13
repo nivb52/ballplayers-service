@@ -1,6 +1,6 @@
 import rascal = require("rascal");
-import { rabbitConfig, subs, pubs } from "../../config/rabbitConfig";
-import type { systemEventMessageContent } from '../../models/systemEventMessages/interface'
+import { rabbitConfig, subs, pubs } from "@config/rabbitConfig";
+import type { systemEventMessageContent } from '@models/systemEventMessages/interface'
 
 export const subscribers = subs;
 export const publishers = pubs;

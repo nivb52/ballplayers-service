@@ -1,5 +1,5 @@
 require("dotenv").config();
-import { initGlobals } from "../config/globals";
+import { initGlobals } from "@config/globals";
 
 export const initConfig = () => {
   if (!process.env.AMQP) {
